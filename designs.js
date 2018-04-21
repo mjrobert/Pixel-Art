@@ -44,3 +44,12 @@ function makeGrid() {
 	}
 
 }
+
+
+// Change the colour of cells when clicked.
+
+table.addEventListener('click', function (event) {
+    if (event.target.nodeName === 'TD') {  
+        event.target.style.backgroundColor = color;
+    }
+});
