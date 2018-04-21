@@ -1,33 +1,46 @@
-// Select color input
+// Variables declaration
+
+let color, width, height;
+
+const table = document.getElementById('pixelCanvas');
+
+const submit = document.querySelector('input[type="submit"]');
 
 const colorPicker = document.querySelector('input[type="color"]');
 
-let color = colorPicker.value;
+
+// Get colour value chosen
+
+color = colorPicker.value;
 
 colorPicker.addEventListener('input', function () {
     color = colorPicker.value;
 });
 
 
-// Select size input
-
-let height = document.getElementById("inputHeight").value;
-let width = document.getElementById('inputWidth').value;
-
-const submit = document.querySelector('input[type="submit"]');
 
 
-// When size is submitted by the user, call makeGrid()
+// When size is submitted by the user, call makeGrid() using input values
 
 submit.addEventListener('click', function(event){
-  event.preventDefault(); //so it doesn't reload when i click submit
+  event.preventDefault(); 
+  height = Number(document.getElementById("inputHeight").value);
+  width = Number(document.getElementById('inputWidth').value);
+
   makeGrid()
 });
 
 
 
 function makeGrid() {
-
-// Your code goes here!
+	table.innerHTML="";  //empties table
+	for (let m = 0; m < height; m++){
+		const row = document.createElement("tr");
+		table.appendChild(row);
+			for (let n = 0; n < width; n++) {
+				const column = document.createElement("td");
+				row.appendChild(column);
+			}
+	}
 
 }
